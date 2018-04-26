@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_deuda"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/text_departamento"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:text="mock_text"/>
+    <TextView
+        android:id="@+id/text_periodo"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/text_departamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:text="mock_text"/>
+    <TextView
+        android:id="@+id/text_monto"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/text_periodo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:text="mock_text"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
