@@ -21,6 +21,8 @@ public class Deuda {
     private String departamento;
     private String periodo;
     private double monto;
+    private String estado;
+    private int perfil;
     private List<DeudaDetalle> detalle;
 
     public Deuda(){
@@ -31,7 +33,7 @@ public class Deuda {
         this.idDeuda = idDeuda;
     }
 
-    public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
+    public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle, String estado, int perfil) {
         this.idDeuda = idDeuda;
         this.idDepartamento = idDepartamento;
         this.idPeriodo = idPeriodo;
@@ -39,6 +41,8 @@ public class Deuda {
         this.periodo = periodo;
         this.monto = monto;
         this.detalle = detalle;
+        this.estado = estado;
+        this.perfil = perfil;
     }
 
     public int getIdDeuda() {
@@ -88,6 +92,21 @@ public class Deuda {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
+    }
 
     public List<DeudaDetalle> getDetalle() {
         return detalle;
@@ -119,28 +138,24 @@ public class Deuda {
                     jsonArticle.getString("departamento"),
                     jsonArticle.getString("periodo"),
                     jsonArticle.getDouble("monto"),
-                    DeudaDetalle.from(jsonArticle.getJSONArray("detalle")));
+                    DeudaDetalle.from(jsonArticle.getJSONArray("detalle")),
+                    jsonArticle.getString("estado"),
+                    jsonArticle.getInt("perfil")
+                    );
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
 //public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
-    public static Deuda from(Bundle bundle) {
-        return new Deuda(
-                bundle.getInt("idDeuda"),
-                bundle.getInt("idDepartamento"),
-                bundle.getInt("idPeriodo"),
-                bundle.getString("departamento"),
-                bundle.getString("periodo"),
-                bundle.getDouble("monto"),
-                null
-        );
+    public static int from(Bundle bundle) {
+        return bundle.getInt("idDeuda");
     }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putInt("idDeuda", getIdDeuda());
+        int idDeuda= getIdDeuda();
+        bundle.putInt("idDeuda", idDeuda);
         return bundle;
     }
 }

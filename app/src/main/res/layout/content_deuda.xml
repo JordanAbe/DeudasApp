@@ -8,10 +8,17 @@
     tools:context=".viewcontrollers.activities.DeudaActivity"
     tools:showIn="@layout/activity_deuda">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="150dp"/>
+
     <TextView
         android:id="@+id/text_departamento"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,4 +44,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/mock"/>
+    <TextView
+        android:id="@+id/text_perfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/text_monto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/mock"/>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_detalles"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline_one"
+        />
+
+
+
 </android.support.constraint.ConstraintLayout>

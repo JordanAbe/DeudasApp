@@ -61,6 +61,7 @@ public class DeudasAdapter extends RecyclerView.Adapter<DeudasAdapter.ViewHolder
         private TextView departamentoTextView;
         private TextView periodoTextView;
         private TextView montoTextView;
+        private TextView estadoTextView;
         private ConstraintLayout deudaLayout;
 
         public ViewHolder(View view) {
@@ -68,6 +69,7 @@ public class DeudasAdapter extends RecyclerView.Adapter<DeudasAdapter.ViewHolder
             departamentoTextView = (TextView) view.findViewById(R.id.text_departamento);
             periodoTextView = (TextView) view.findViewById(R.id.text_periodo);
             montoTextView = (TextView) view.findViewById(R.id.text_monto);
+            estadoTextView = (TextView) view.findViewById(R.id.text_estado);
             deudaLayout = (ConstraintLayout) view.findViewById(R.id.layout_deuda);
         }
 
@@ -75,6 +77,7 @@ public class DeudasAdapter extends RecyclerView.Adapter<DeudasAdapter.ViewHolder
             departamentoTextView.setText(deuda.getDepartamento());
             periodoTextView.setText(deuda.getPeriodo());
             montoTextView.setText(String.valueOf(deuda.getMonto()));
+            estadoTextView.setText(deuda.getEstado());
             deudaLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

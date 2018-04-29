@@ -58,40 +58,31 @@ public class DeudasFragment extends Fragment {
         deudasRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_deudas);
         deudas = new ArrayList<>();
         deudasAdapter = new DeudasAdapter(deudas);
-        deudasLayoutManager = new GridLayoutManager(view.getContext(),
-                getSpanCount(getResources().getConfiguration()));
+        deudasLayoutManager = new GridLayoutManager(view.getContext(), getSpanCount(getResources().getConfiguration()));
         deudasRecyclerView.setAdapter(deudasAdapter);
         deudasRecyclerView.setLayoutManager(deudasLayoutManager);
 
-
-        deudas = getDeudasStatic();
-        deudasAdapter.setDeudas(deudas);
-        //updateData(view.getContext());
+        updateData(view.getContext());
         return view;
     }
 
     private void updateData(Context context) {
 
-        Log.d(TAG, " //////////////***** "+context);
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
-        Log.d(TAG, " ////////////// " + tm);
+        /*TelephonyManager tm = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
         if ( ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            Log.d(TAG, " ////////////// ");
-            String number = tm.getLine1Number();
-            Log.d(TAG, "************* : "+number);
             return;
         }
-        String number = tm.getLine1Number();
-        Log.d(TAG, "************* : "+number);
-
+        String numTel = tm.getLine1Number();*/
+        String numTel = "123";
         AndroidNetworking.get(NewsApi.getDeudasUrl())
-                .addQueryParameter("tel", number)
+                .addQueryParameter("tel", numTel)
                 .setTag(TAG)
                 .setPriority(Priority.LOW)
                 .build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.d(TAG, String.format("Response : ",response));
                         try {
                             if("error".equalsIgnoreCase(response.getString("status"))) {
                                 Log.d(TAG, String.format("Response Error: %s",
@@ -129,19 +120,4 @@ public class DeudasFragment extends Fragment {
                 .setSpanCount(getSpanCount(configuration));
     }
 
-    public List<Deuda> getDeudasStatic() {
-        //public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
-        List<Deuda> deudas = new ArrayList<>();
-        List<DeudaDetalle> detalle = new ArrayList<>();
-        DeudaDetalle d1 = new DeudaDetalle(1,1,1,"Agua",120.00);
-        DeudaDetalle d2 = new DeudaDetalle(1,1,1,"Luz",130.00);
-        detalle.add(d1);
-        detalle.add(d2);
-        deudas.add(new Deuda(1, 1, 1, "401", "Abril", 250.00, detalle));
-        deudas.add(new Deuda(2, 1, 1, "402", "Abril", 250.00, detalle));
-        deudas.add(new Deuda(3, 1, 1, "403", "Abril", 250.00, detalle));
-        deudas.add(new Deuda(4, 1, 1, "404", "Abril", 250.00, detalle));
-        deudas.add(new Deuda(5, 1, 1, "405", "Abril", 250.00, detalle));
-        return deudas;
-    }
 }
