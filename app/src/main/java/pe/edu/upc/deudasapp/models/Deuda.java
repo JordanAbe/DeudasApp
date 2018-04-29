@@ -23,7 +23,9 @@ public class Deuda {
     private double monto;
     private List<DeudaDetalle> detalle;
 
-    public Deuda(){}
+    public Deuda(){
+        //comment
+    }
 
     public Deuda(int idDeuda){
         this.idDeuda = idDeuda;
