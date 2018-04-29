@@ -61,7 +61,11 @@ public class DeudasFragment extends Fragment {
                 getSpanCount(getResources().getConfiguration()));
         deudasRecyclerView.setAdapter(deudasAdapter);
         deudasRecyclerView.setLayoutManager(deudasLayoutManager);
-        updateData(view.getContext());
+
+
+        deudas = getDeudasStatic();
+        deudasAdapter.setDeudas(deudas);
+        //updateData(view.getContext());
         return view;
     }
 
@@ -80,7 +84,7 @@ public class DeudasFragment extends Fragment {
         Log.d(TAG, "************* : "+number);
 
         AndroidNetworking.get(NewsApi.getDeudasUrl())
-                .addQueryParameter("tel", "456")
+                .addQueryParameter("tel", number)
                 .setTag(TAG)
                 .setPriority(Priority.LOW)
                 .build()
@@ -124,4 +128,14 @@ public class DeudasFragment extends Fragment {
                 .setSpanCount(getSpanCount(configuration));
     }
 
+    public List<Deuda> getDeudasStatic() {
+        //public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
+        List<Deuda> deudas = new ArrayList<>();
+        deudas.add(new Deuda(1, 1, 1, "401", "Abril", 250.00, null));
+        deudas.add(new Deuda(2, 1, 1, "402", "Abril", 250.00, null));
+        deudas.add(new Deuda(3, 1, 1, "403", "Abril", 250.00, null));
+        deudas.add(new Deuda(4, 1, 1, "404", "Abril", 250.00, null));
+        deudas.add(new Deuda(5, 1, 1, "405", "Abril", 250.00, null));
+        return deudas;
+    }
 }
