@@ -29,6 +29,7 @@ import java.util.List;
 
 import pe.edu.upc.deudasapp.R;
 import pe.edu.upc.deudasapp.models.Deuda;
+import pe.edu.upc.deudasapp.models.DeudaDetalle;
 import pe.edu.upc.deudasapp.network.NewsApi;
 import pe.edu.upc.deudasapp.viewcontrollers.adapters.DeudasAdapter;
 
@@ -131,11 +132,16 @@ public class DeudasFragment extends Fragment {
     public List<Deuda> getDeudasStatic() {
         //public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
         List<Deuda> deudas = new ArrayList<>();
-        deudas.add(new Deuda(1, 1, 1, "401", "Abril", 250.00, null));
-        deudas.add(new Deuda(2, 1, 1, "402", "Abril", 250.00, null));
-        deudas.add(new Deuda(3, 1, 1, "403", "Abril", 250.00, null));
-        deudas.add(new Deuda(4, 1, 1, "404", "Abril", 250.00, null));
-        deudas.add(new Deuda(5, 1, 1, "405", "Abril", 250.00, null));
+        List<DeudaDetalle> detalle = new ArrayList<>();
+        DeudaDetalle d1 = new DeudaDetalle(1,1,1,"Agua",120.00);
+        DeudaDetalle d2 = new DeudaDetalle(1,1,1,"Luz",130.00);
+        detalle.add(d1);
+        detalle.add(d2);
+        deudas.add(new Deuda(1, 1, 1, "401", "Abril", 250.00, detalle));
+        deudas.add(new Deuda(2, 1, 1, "402", "Abril", 250.00, detalle));
+        deudas.add(new Deuda(3, 1, 1, "403", "Abril", 250.00, detalle));
+        deudas.add(new Deuda(4, 1, 1, "404", "Abril", 250.00, detalle));
+        deudas.add(new Deuda(5, 1, 1, "405", "Abril", 250.00, detalle));
         return deudas;
     }
 }

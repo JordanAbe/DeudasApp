@@ -125,11 +125,17 @@ public class Deuda {
             return null;
         }
     }
-
+//public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
     public static Deuda from(Bundle bundle) {
         return new Deuda(
-                bundle.getInt("idDeuda"));
-
+                bundle.getInt("idDeuda"),
+                bundle.getInt("idDepartamento"),
+                bundle.getInt("idPeriodo"),
+                bundle.getString("departamento"),
+                bundle.getString("periodo"),
+                bundle.getDouble("monto"),
+                null
+        );
     }
 
     public Bundle toBundle() {
