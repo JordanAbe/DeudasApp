@@ -1,6 +1,7 @@
 package pe.edu.upc.deudasapp.models;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +24,7 @@ public class Deuda {
     private double monto;
     private String estado;
     private int perfil;
+    private String operacion;
     private List<DeudaDetalle> detalle;
 
     public Deuda(){
@@ -33,7 +35,7 @@ public class Deuda {
         this.idDeuda = idDeuda;
     }
 
-    public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle, String estado, int perfil) {
+    public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle, String estado, int perfil, String operacion) {
         this.idDeuda = idDeuda;
         this.idDepartamento = idDepartamento;
         this.idPeriodo = idPeriodo;
@@ -43,6 +45,7 @@ public class Deuda {
         this.detalle = detalle;
         this.estado = estado;
         this.perfil = perfil;
+        this.operacion = operacion;
     }
 
     public int getIdDeuda() {
@@ -108,6 +111,14 @@ public class Deuda {
         this.perfil = perfil;
     }
 
+    public String getOperacion() {
+        return operacion;
+    }
+
+    public void setOperacion(String operacion) {
+        this.operacion = operacion;
+    }
+
     public List<DeudaDetalle> getDetalle() {
         return detalle;
     }
@@ -140,21 +151,24 @@ public class Deuda {
                     jsonArticle.getDouble("monto"),
                     DeudaDetalle.from(jsonArticle.getJSONArray("detalle")),
                     jsonArticle.getString("estado"),
-                    jsonArticle.getInt("perfil")
-                    );
+                    jsonArticle.getInt("perfil"),
+                    jsonArticle.getString("operacion")
+            );
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
-//public Deuda(int idDeuda, int idDepartamento, int idPeriodo, String departamento, String periodo, double monto, List<DeudaDetalle> detalle) {
+
     public static int from(Bundle bundle) {
-        return bundle.getInt("idDeuda");
+        Integer id = bundle.getInt("idDeuda");
+        return id;
     }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
         int idDeuda= getIdDeuda();
+        Log.d("App***************:", "idDeuda : " + idDeuda);
         bundle.putInt("idDeuda", idDeuda);
         return bundle;
     }
