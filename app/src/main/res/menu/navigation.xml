@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Inicio" />
+
+    <item
+        android:id="@+id/navigation_deudas"
+        android:icon="@drawable/ic_indeterminate_check_box_black_24dp"
+        android:title="Deudas" />
+
+    <!--<item
+        android:id="@+id/navigation_deuda"
+        android:icon="@drawable/ic_indeterminate_check_box_black_24dp"
+        android:title="Deudas" />-->
+
+    <item
+        android:id="@+id/navigation_confing"
+        android:icon="@drawable/ic_settings_applications_black_24dp"
+        android:title="Configuración" />
+
+</menu>
