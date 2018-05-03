@@ -15,53 +15,148 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="150dp"/>
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="380dp"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="200dp"/>
+
     <TextView
-        android:id="@+id/text_departamento"
-        android:layout_width="match_parent"
+        android:id="@+id/text_departamento_label"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:text="@string/mock"/>
+        android:text="Departamento"/>
+
+
+    <TextView
+        android:id="@+id/text_periodo_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:text="Periodo"/>
+
+    <TextView
+        android:id="@+id/text_departamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/text_departamento_label"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="50dp"
+        android:text="depar"/>
+
+
     <TextView
         android:id="@+id/text_periodo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_departamento"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_periodo_label"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="italic"
-        android:text="@string/mock"/>
-    <TextView
-        android:id="@+id/text_monto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_periodo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/mock"/>
-    <TextView
-        android:id="@+id/text_perfil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_monto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/mock"/>
+        android:textStyle="bold"
+        android:textSize="50dp"
+        android:text="periodo"/>
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/text_departamento"
+        >
+        <TextView
+            android:id="@+id/text_estado_label"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/margin"
+            android:textStyle="italic"
+            android:textColor="#fff"
+            android:text="Estado : "/>
+        <TextView
+            android:id="@+id/text_estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:textStyle="italic"
+            android:textColor="#fff"
+            android:text="estado"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_servicios_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:text="Servicios"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_detalles"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:layout_constraintTop_toBottomOf="@id/guideline_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/text_servicios_label"
         />
 
+    <TextView
+        android:id="@+id/text_monto_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/recycler_detalles"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:text="Monto total : "/>
+
+    <TextView
+        android:id="@+id/text_monto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/recycler_detalles"
+        app:layout_constraintStart_toEndOf="@id/guideline_tres"
+        android:textStyle="bold"
+        android:text="@string/mock"/>
+
+    <TextView
+        android:id="@+id/text_operacion_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        app:layout_constraintTop_toBottomOf="@id/guideline_dos"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:text="Operación : "/>
+
+    <EditText
+        android:id="@+id/text_operacion"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/guideline_dos"
+        app:layout_constraintStart_toEndOf="@id/guideline_tres"
+        android:text=""/>
 
 
 </android.support.constraint.ConstraintLayout>
