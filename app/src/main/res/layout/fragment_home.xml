@@ -7,6 +7,63 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="pe.edu.upc.deudasapp.viewcontrollers.fragments.HomeFragment">
 
-   
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_uno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="50dp"/>
+
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="80dp"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_uno"
+        android:textSize="20dp"
+        android:textColor="#ff7733"
+        android:textStyle="bold"
+        android:text="Bienvenido a ResidentApp"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="@id/guideline_dos"
+        android:src="@drawable/img_dep"/>
+
+    <TextView
+        android:id="@+id/text_descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="50dp"
+        android:paddingLeft="50dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="@id/guideline_tres"
+        android:textSize="15dp"
+        android:textColor="#3346ff"
+        android:textStyle="bold"
+        android:text="Esta aplicación le permitirá ver y registrar los montos a pagar por los servicios brindados a su departamento"/>
+
+
+
+
 </android.support.constraint.ConstraintLayout>
 
