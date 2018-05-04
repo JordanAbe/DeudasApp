@@ -73,19 +73,7 @@ public class DeudasAdapter extends RecyclerView.Adapter<DeudasAdapter.ViewHolder
             deudaLayout = (ConstraintLayout) view.findViewById(R.id.layout_deuda);
         }
 
-        public void updateViews(final Deuda deuda) {
-            departamentoTextView.setText(deuda.getDepartamento());
-            periodoTextView.setText(deuda.getPeriodo());
-            montoTextView.setText(String.valueOf(deuda.getMonto()));
-            estadoTextView.setText(deuda.getEstado());
-            deudaLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Context context = v.getContext();
-                    context.startActivity(new Intent(context,
-                            DeudaActivity.class).putExtras(deuda.toBundle()));
-                }
-            });
+      
         }
     }
 }
