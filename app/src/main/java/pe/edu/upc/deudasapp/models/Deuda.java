@@ -16,6 +16,7 @@ import java.util.List;
 
 public class Deuda {
 
+    
     private int idDeuda;
     private int idDepartamento;
     private int idPeriodo;
