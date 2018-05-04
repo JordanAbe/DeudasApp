@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="pe.edu.upc.deudasapp.viewcontrollers.fragments.HomeFragment">
-
+                         
     <android.support.constraint.Guideline
         android:id="@+id/guideline_uno"
         android:layout_width="wrap_content"
