@@ -30,5 +30,12 @@
         app:layout_constraintStart_toEndOf="@id/guideline_uno"
         android:text="servicio"/>
 
+    <TextView
+        android:id="@+id/text_monto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline_dos"
+        android:text="monto"/>
+
 
 </android.support.constraint.ConstraintLayout>
