@@ -38,14 +38,14 @@ public class DeudasAdapter extends RecyclerView.Adapter<DeudasAdapter.ViewHolder
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DeudasAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
                 LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item_deuda, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DeudasAdapter.ViewHolder holder, int position) {
         holder.updateViews(deudas.get(position));
     }
 
