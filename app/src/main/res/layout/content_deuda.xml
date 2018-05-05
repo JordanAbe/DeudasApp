@@ -174,7 +174,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_operacion"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/pagar"
+            android:text="Pagar"
             />
         <Button
             android:id="@+id/button_confirmar"
