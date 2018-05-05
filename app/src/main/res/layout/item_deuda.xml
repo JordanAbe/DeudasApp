@@ -4,48 +4,55 @@
     android:id="@+id/layout_deuda"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+    android:background="@color/colorAccent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_uno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="70dp"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="140dp"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="210dp"/>
 
     <TextView
         android:id="@+id/text_departamento"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:text="mock_text"/>
+        android:text="Operación"/>
     <TextView
         android:id="@+id/text_periodo"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_departamento"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:text="mock_text"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline_uno"
+        android:text="mock"/>
     <TextView
         android:id="@+id/text_monto"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_periodo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:text="mock_text"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline_dos"
+        android:text="mock"/>
     <TextView
         android:id="@+id/text_estado"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_margin="@dimen/margin"
-        app:layout_constraintTop_toBottomOf="@id/text_monto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textStyle="bold"
-        android:text="mock_text"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/guideline_tres"
+        android:text="mock"/>
 
 
 
