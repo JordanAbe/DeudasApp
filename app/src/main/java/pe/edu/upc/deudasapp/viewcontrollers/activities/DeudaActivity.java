@@ -55,7 +55,6 @@ public class DeudaActivity extends AppCompatActivity {
 
     private Button buttonPagar;
     private Button buttonConfirmar;
-    private Button buttonListado;
 
     private RecyclerView deudaDetallesRecyclerView;
     private DeudaDetalleAdapter deudaDetallesAdapter;
@@ -63,6 +62,8 @@ public class DeudaActivity extends AppCompatActivity {
     private List<DeudaDetalle> detalles;
 
     private int idDeuda;
+
+    Deuda deuda = null;
 
 
     @Override
@@ -85,7 +86,6 @@ public class DeudaActivity extends AppCompatActivity {
 
         buttonPagar = (Button) findViewById(R.id.button_pagar);
         buttonConfirmar = (Button) findViewById(R.id.button_confirmar);
-        buttonListado = (Button) findViewById(R.id.button_listado);
 
         idDeuda = Deuda.from(intent.getExtras());
         setDeuda(context);
@@ -110,7 +110,8 @@ public class DeudaActivity extends AppCompatActivity {
                                 return;
                             }
                             List<Deuda> deudas = Deuda.from(response.getJSONArray("deudas"));
-                            updateViews(deudas.get(0), context);
+                            deuda = deudas.get(0);
+                            updateViews(deuda, context);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -157,7 +158,6 @@ public class DeudaActivity extends AppCompatActivity {
         }
         buttonPagar.setOnClickListener(onClickPagarListener);
         buttonConfirmar.setOnClickListener(onClickConfirmarListener);
-        buttonListado.setOnClickListener(onClickListadoListener);
 
 
         deudaDetallesRecyclerView = (RecyclerView) findViewById(R.id.recycler_detalles);
@@ -194,10 +194,11 @@ public class DeudaActivity extends AppCompatActivity {
                                     if ("error".equalsIgnoreCase(response.getString("status"))) {
                                         mensajeTextView.setText("ERROR REALIZANDO LA OPERACIÓN");
                                     } else {
-                                        Deuda deuda = new Deuda(idDeuda);
+                                        //Deuda deuda = new Deuda(idDeuda);
                                         Context context = DeudaActivity.this.getApplicationContext();
-                                        context.startActivity(new Intent(context,
-                                                DeudaActivity.class).putExtras(deuda.toBundle()));
+                                        /*context.startActivity(new Intent(context,
+                                                DeudaActivity.class).putExtras(deuda.toBundle()));*/
+                                        setDeuda(context);
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -231,10 +232,11 @@ public class DeudaActivity extends AppCompatActivity {
                                 if("error".equalsIgnoreCase(response.getString("status"))) {
                                     mensajeTextView.setText("ERROR REALIZANDO LA OPERACIÓN");
                                 }else{
-                                    Deuda deuda = new Deuda(idDeuda);
+                                    //Deuda deuda = new Deuda(idDeuda);
                                     Context context = DeudaActivity.this.getApplicationContext();
-                                    context.startActivity(new Intent(context,
-                                            DeudaActivity.class).putExtras(deuda.toBundle()));
+                                        /*context.startActivity(new Intent(context,
+                                                DeudaActivity.class).putExtras(deuda.toBundle()));*/
+                                    setDeuda(context);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -287,3 +289,4 @@ public class DeudaActivity extends AppCompatActivity {
     }
 
 }
+
