@@ -37,7 +37,7 @@ import pe.edu.upc.deudasapp.viewcontrollers.adapters.DeudasAdapter;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 public class DeudaActivity extends AppCompatActivity {
-
+ 
     private static String TAG = "DeudasApp";
     private TextView departamentoTextView;
     private TextView periodoTextView;
