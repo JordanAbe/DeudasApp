@@ -87,16 +87,14 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_margin="@dimen/margin"
-            android:textStyle="italic"
-            android:textColor="#fff"
+            android:textStyle="bold"
             android:text="Estado : "/>
         <TextView
             android:id="@+id/text_estado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:textStyle="italic"
-            android:textColor="#fff"
+            android:textStyle="bold"
             android:text="estado"/>
 
     </LinearLayout>
